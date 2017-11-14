@@ -1,3 +1,5 @@
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="ru.javawebinar.topjava.util.DateTimeUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -22,6 +24,17 @@
     <h2>Meals</h2>
     <a href="meals?action=create">Add Meal</a>
     <hr/>
+    <form method="get" action="meals?action=filtered">
+        <label>Start date:</label>
+        <input type="datetime-local" value="<%=DateTimeUtil.parse(request.getParameter("startDate"))%>" name="startDate">
+        <br>
+        <label>End date:</label>
+        <input type="datetime-local" value="<%=DateTimeUtil.parse(request.getParameter("endDate"))%>" name="endDate">
+        <button type="submit">Filter</button>
+    </form>
+    <hr/>
+
+
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
         <tr>
@@ -33,7 +46,7 @@
         </tr>
         </thead>
         <c:forEach items="${meals}" var="meal">
-            <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.MealWithExceed"/>
+            <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.to.MealWithExceed"/>
             <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
                 <td>
                         <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>
