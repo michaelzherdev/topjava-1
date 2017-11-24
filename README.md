@@ -1,5 +1,5 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3090cdac212404d80d8d289dbc61870)](https://www.codacy.com/app/michaelzherdev/topjava12)
-[![Build Status](https://travis-ci.org/JavaWebinar/topjava.svg?branch=master)](https://travis-ci.org/michaelzherdev/topjava12)
+[![Build Status](https://api.travis-ci.org/michaelzherdev/topjava12.svg?branch=master)](https://travis-ci.org/michaelzherdev/topjava12)
 [![VersionEye](https://www.versioneye.com/user/projects/5a14435c0fb24f2a6d408cde/badge.svg)](https://www.versioneye.com/user/projects/5a16ad740fb24f212afb2a7c)
 
 Java Enterprise Online Project 
