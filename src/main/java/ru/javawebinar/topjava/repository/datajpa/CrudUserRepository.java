@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.User;
 
 import java.util.List;
@@ -25,6 +26,9 @@ public interface CrudUserRepository extends JpaRepository<User, Integer> {
 
     @Override
     Optional<User> findById(Integer id);
+
+    @Query("SELECT u FROM User u JOIN FETCH u.meals WHERE u.id=:id")
+    User getWithMeal(@Param("id") int id);
 
     @Override
     List<User> findAll(Sort sort);

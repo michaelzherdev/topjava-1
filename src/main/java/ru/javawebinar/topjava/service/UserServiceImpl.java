@@ -43,6 +43,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getWithMeal(int id) throws NotFoundException {
+        return checkNotFoundWithId(repository.getWithMeal(id), id);
+    }
+
+    @Override
     public User getByEmail(String email) throws NotFoundException {
         Assert.notNull(email, "email must not be null");
         return checkNotFound(repository.getByEmail(email), "email=" + email);
