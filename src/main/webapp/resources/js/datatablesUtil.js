@@ -1,6 +1,6 @@
 function makeEditable() {
     $(".delete").click(function () {
-        deleteRow($(this).attr("id"));
+        deleteRow($(this).parent('td').parent('tr').attr('id'));
     });
 
     $("#detailsForm").submit(function () {
@@ -51,6 +51,7 @@ function save() {
         }
     });
 }
+
 
 var failedNote;
 

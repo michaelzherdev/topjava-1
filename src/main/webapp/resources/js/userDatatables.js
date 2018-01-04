@@ -40,3 +40,19 @@ $(function () {
     });
     makeEditable();
 });
+
+function enabled(checbox, id){
+    var enabled = checbox.is(':checked');
+    $.ajax({
+        type: "POST",
+        url: ajaxUrl + id,
+        data:'enabled=' + enabled,
+        success: function(){
+            checbox.closest('tr').toggleClass('disable');
+            successNoty(enabled ? 'Enabled' : 'Disabled');
+        },
+        error: function(){
+            $(checbox).prop("checked", !enabled)
+        }
+    });
+}
