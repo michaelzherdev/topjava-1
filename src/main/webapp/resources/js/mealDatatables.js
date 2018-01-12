@@ -27,7 +27,7 @@ $(function () {
                 "data": "dateTime",
                 "render": function (data, type, row) {
                     if (type === "display") {
-                        return data.toString().replace("T", " ");
+                        return data.toString().substring(0, 16).replace("T", " ");
                     }
                     return data;
                 }
@@ -37,7 +37,7 @@ $(function () {
             },
             {
                 "data": "exceed",
-                "visible" : false
+                "visible": false
             },
             {
                 "data": "calories"
@@ -67,5 +67,20 @@ $(function () {
             }
         },
         "initComplete": makeEditable
+    });
+
+    $('#startDate, #endDate').datetimepicker({
+        timepicker: false,
+        format: 'Y-m-d',
+        formatDate: 'Y-m-d'
+    });
+
+    $('#startTime, #endTime').datetimepicker({
+        datepicker: false,
+        format: 'H:i'
+    });
+
+    $('#dateTime').datetimepicker({
+        format: 'Y-m-d H:i'
     });
 });
