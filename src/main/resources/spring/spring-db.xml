@@ -15,13 +15,13 @@
 
     <!-- Change DB by comment/uncomment property-placeholder -->
 
-    <!--<context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>-->
-    <context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/>
+    <context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>
+    <!--<context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/>-->
 
-    <jdbc:initialize-database data-source="dataSource" enabled="${database.init}">
-        <jdbc:script location="classpath:db/${jdbc.initLocation}"/>
-        <jdbc:script encoding="utf-8" location="classpath:db/populateDB.sql"/>
-    </jdbc:initialize-database>
+    <!--<jdbc:initialize-database data-source="dataSource" enabled="${database.init}">-->
+        <!--<jdbc:script location="classpath:db/${jdbc.initLocation}"/>-->
+        <!--<jdbc:script encoding="utf-8" location="classpath:db/populateDB.sql"/>-->
+    <!--</jdbc:initialize-database>-->
 
     <!-- Choose profile from (hsqldb, postgres) and (jdbc,datajpa,jpa) -->
 
